@@ -1,12 +1,14 @@
 #include<iostream>
 using namespace std;
-void bubblesort(int a[], int n){
+void selsort(int a[], int n){
     for(int j=0;j<n;j++){
-        for(int i=0;i<n-1-j;i++){
-            if(a[i+1]<a[i]){
-                swap(a[i+1],a[i]);
+        int min=j;
+        for(int i=j;i<n;i++){
+            if(a[i]<a[min]){
+                min=i;
             }
         }
+        swap(a[min],a[j]);
     }
 }
 int main(){
@@ -18,7 +20,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    bubblesort(arr, n);
+    selsort(arr, n);
     cout<<"\nSorted array: "<<endl;
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";

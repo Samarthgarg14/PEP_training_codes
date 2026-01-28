@@ -1,12 +1,8 @@
 #include<iostream>
 using namespace std;
-void bubblesort(int a[], int n){
-    for(int j=0;j<n;j++){
-        for(int i=0;i<n-1-j;i++){
-            if(a[i+1]<a[i]){
-                swap(a[i+1],a[i]);
-            }
-        }
+void insersort(int a[], int n){
+    for(int i=0;i<n;i++){
+        
     }
 }
 int main(){
@@ -18,7 +14,7 @@ int main(){
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    bubblesort(arr, n);
+    insersort(arr, n);
     cout<<"\nSorted array: "<<endl;
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
