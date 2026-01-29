@@ -1,22 +1,17 @@
 #include<iostream>
 using namespace std;
-class LL{
+class Node{
     public:
     int data;
-    LL* next;
-    LL(){
+    Node* next;
+    Node(){
         this->next=nullptr;
     }
-    LL(int d){
+    Node(int d){
         this->data=d;
         this->next=nullptr;
     }
-    }
 };
-void insertathead(LL *hd,int a){
-
-}
 int main(){
-    LL* head=new LL();
-
+    return 0;
 }
