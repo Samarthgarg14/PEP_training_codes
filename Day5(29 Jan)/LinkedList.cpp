@@ -78,17 +78,70 @@ Node* reversell(Node* head){
     cout<<"\nLinked List reversed"<<endl;
     return prev;
 }
+Node* merge2LL(Node* head1,Node* head2){
+    if (!head1) return head2;
+    if (!head2) return head1;
 
+    Node* head = nullptr;
+    Node* temp3 = nullptr;
+
+    if (head1->data < head2->data) {
+        head = new Node(head1->data);
+        head1 = head1->next;
+    } else {
+        head = new Node(head2->data);
+        head2 = head2->next;
+    }
+    temp3 = head;
+
+    while(head1 && head2){
+        if(head1->data < head2->data){
+            temp3->next=new Node(head1->data);
+            head1=head1->next;
+        }
+        else{
+            temp3->next=new Node(head2->data);
+            head2=head2->next;
+        }
+        temp3=temp3->next;
+    }
+    while(head1){
+        temp3->next=new Node(head1->data);
+        temp3=temp3->next;
+        head1=head1->next;
+    }
+    while(head2){
+        temp3->next=new Node(head2->data);
+        temp3=temp3->next;
+        head2=head2->next;
+    }
+    return head;
+}
 int main(){
+    Node* head1=nullptr;
+    Node* head2=nullptr;
     Node* head=nullptr;
     int n,key;
-    cout<<"\nEnter the length: ";
+    cout<<"\nEnter the length1: ";
     cin>>n;
-    cout<<"\nEnter the LL elements: ";
+    cout<<"\nEnter the LL1 elements: ";
     for(int i=0;i<n;i++){
         cin>>key;
-        head=insertattail(head,key);
+        head1=insertattail(head1,key);
     }
+    displayll(head1);
+
+    cout<<"\nEnter the length2: ";
+    cin>>n;
+    cout<<"\nEnter the LL2 elements: ";
+    for(int i=0;i<n;i++){
+        cin>>key;
+        head2=insertattail(head2,key);
+    }
+    displayll(head2);
+
+    head=merge2LL(head1,head2);
+    cout<<"\nAfter merging the final LL: "<<endl;
     displayll(head);
     // head=insertathead(head,0);
     // displayll(head);
@@ -96,8 +149,8 @@ int main(){
     // displayll(head);
     // head=deleteattail(head);
     // displayll(head);
-    head=deleteathead(head);
-    displayll(head);
+    // head=deleteathead(head);
+    // displayll(head);
     cout<<endl;
     return 0;
 }
