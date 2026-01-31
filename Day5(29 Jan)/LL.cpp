@@ -1,4 +1,5 @@
 #include<iostream>
+#include<math.h>
 using namespace std;
 class Node{
     public:
@@ -43,6 +44,21 @@ class LL{
     void delatpos(int pos){
         
     }
+    Node* mid(){
+        Node* temp=head;
+        Node* res=head;
+        int m=0;
+        int n=0;
+        while(temp){
+            if(m!=n/2){
+                res=res->next;
+                m++;
+            }
+            temp=temp->next;
+            n++;
+        }
+        return res;
+    }
 };
 int main(){
     LL* list=new LL();
@@ -57,4 +73,6 @@ int main(){
     }
     cout<<"\nElement(s) inserted into linked list"<<endl;
     list->display();
+
+    cout<<"\nMiddle element of the list: "<<list->mid()->data<<endl;
 }
