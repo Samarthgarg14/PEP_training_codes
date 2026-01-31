@@ -41,7 +41,7 @@ class LL{
         }
     }
     void delatpos(int pos){
-        if(pos)
+        
     }
 };
 int main(){
