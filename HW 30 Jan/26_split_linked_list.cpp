@@ -4,7 +4,10 @@ using namespace std;
 struct Node {
     int data;
     Node* next;
-    Node(int val) : data(val), next(NULL) {}
+    Node(int val){
+        data=val;
+        next=nullptr;
+    }
 };
 
 void printList(Node* head) {
@@ -29,13 +32,13 @@ int main() {
     for (int i = 0; i < numNodes; i++) {
         int val;
         cin >> val;
-        Node* newNode = new Node(val);
+        Node* nd = new Node(val);
         if (head == NULL) {
-            head = newNode;
-            tail = newNode;
+            head = nd;
+            tail = nd;
         } else {
-            tail->next = newNode;
-            tail = newNode;
+            tail->next = nd;
+            tail = nd;
         }
     }
 

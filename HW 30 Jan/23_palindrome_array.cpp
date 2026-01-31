@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     int n;
-    cout << "Enter size of array: ";
+    cout << "Enter size: ";
     cin >> n;
 
     int arr[1000];
@@ -12,15 +12,15 @@ int main() {
         cin >> arr[i];
     }
 
-    bool isPalindrome = true;
+    bool ispal = true;
     for (int i = 0; i < n / 2; i++) {
         if (arr[i] != arr[n - 1 - i]) {
-            isPalindrome = false;
+            ispal = false;
             break;
         }
     }
 
-    if (isPalindrome) {
+    if (ispal) {
         cout << "Palindrome" << endl;
     } else {
         cout << "Not Palindrome" << endl;
