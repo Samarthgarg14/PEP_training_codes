@@ -32,6 +32,7 @@ class LL{
         Node* nd=new Node(key);
         if(!head){
             head=nd;
+            tail=nd;
         }
         else{
             Node* temp=head;
@@ -39,6 +40,20 @@ class LL{
                 temp=temp->next;
             }
             temp->next=nd;
+            tail=temp->next;
+        }
+    }
+    void insert(int pos,int key){
+        if(!head){
+            cout<<"\nLinked List is empty"<<endl;
+        }
+        else{
+            Node* temp=head;
+            while(temp->next!=nullptr && pos>0){
+                temp=temp->next;
+                pos--;
+            }
+            
         }
     }
     void delatpos(int pos){
