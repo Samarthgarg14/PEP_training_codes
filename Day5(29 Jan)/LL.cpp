@@ -48,12 +48,23 @@ class LL{
             cout<<"\nLinked List is empty"<<endl;
         }
         else{
+            Node* nd=new Node(key);
             Node* temp=head;
-            while(temp->next!=nullptr && pos>0){
+            while(pos>1){
+                if(!temp){
+                    break;
+                }
                 temp=temp->next;
                 pos--;
             }
-            
+            if(!temp){
+                cout<<"\nIterator reached the end of linked list (Element not inserted)"<<endl;
+            }
+            else{
+                nd->next=temp->next;
+                temp->next=nd;
+                cout<<"\nElement inserted"<<endl;
+            }
         }
     }
     void delatpos(int pos){
@@ -89,5 +100,8 @@ int main(){
     cout<<"\nElement(s) inserted into linked list"<<endl;
     list->display();
 
-    cout<<"\nMiddle element of the list: "<<list->mid()->data<<endl;
+    // cout<<"\nMiddle element of the list: "<<list->mid()->data<<endl;
+    list->insert(3,5);
+    list->display();
+
 }
